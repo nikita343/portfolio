@@ -1,0 +1,237 @@
+/* Shared hero typography + grid primitives. Reveal-line transforms
+   that depend on `mounted` stay inline; only static layout lives here. */
+
+.section {
+  padding-top: clamp(120px, 18vh, 220px);
+  padding-bottom: 40px;
+}
+
+.eyebrowRow {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--line);
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.metaGrid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: var(--gutter);
+  padding-top: 32px;
+  border-top: 1px solid var(--line);
+}
+
+.metaP {
+  max-width: 520px;
+}
+
+.focusList {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 14px;
+}
+
+.statusRow {
+  font-size: 14px;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.statusDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #22c55e;
+}
+
+.statusBooking {
+  font-size: 14px;
+  color: var(--fg-muted);
+  margin-top: 2px;
+}
+
+.italicWord {
+  font-family: "Instrument Serif", serif;
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: -0.03em;
+}
+
+.italicWordInline {
+  font-family: "Instrument Serif", serif;
+  font-style: italic;
+}
+
+.accentDot {
+  color: var(--accent);
+}
+
+/* --- Index variant --- */
+.indexSection {
+  min-height: 92vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-top: clamp(120px, 18vh, 200px);
+  padding-bottom: 60px;
+}
+
+.indexInner {
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+
+.indexHeading {
+  font-size: clamp(48px, 9vw, 140px);
+  line-height: 0.95;
+  letter-spacing: -0.03em;
+  font-weight: 500;
+  max-width: 14ch;
+}
+
+.indexFooterGrid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: var(--gutter);
+  padding-top: 24px;
+  border-top: 1px solid var(--line);
+  align-items: end;
+}
+
+.indexFooterBlurb {
+  max-width: 360px;
+}
+
+/* --- Split variant --- */
+.splitSection {
+  padding-top: clamp(110px, 16vh, 180px);
+  padding-bottom: 40px;
+}
+
+.splitTopBar {
+  margin-bottom: 28px;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 12px;
+}
+
+.splitGrid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: var(--gutter);
+  align-items: stretch;
+}
+
+.splitLeft {
+  grid-column: span 7;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 70vh;
+}
+
+.splitRight {
+  grid-column: span 5;
+}
+
+.splitStats {
+  display: flex;
+  gap: 32px;
+  padding-top: 32px;
+  flex-wrap: wrap;
+}
+
+.splitStatSub {
+  font-size: 13px;
+  color: var(--fg-muted);
+}
+
+/* --- Editorial variant --- */
+.editorialSection {
+  padding-top: clamp(110px, 16vh, 170px);
+  padding-bottom: 60px;
+  overflow: hidden;
+}
+
+.editorialBar {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--line);
+  margin-bottom: clamp(28px, 4vw, 56px);
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.editorialBigLine {
+  white-space: nowrap;
+  font-size: clamp(80px, 18vw, 280px);
+  line-height: 0.85;
+  letter-spacing: -0.05em;
+  font-weight: 500;
+  will-change: transform;
+}
+
+.editorialBigLine + .editorialBigLine {
+  margin-top: clamp(8px, 1.4vw, 20px);
+}
+
+.editorialFooterContainer {
+  padding-top: clamp(40px, 6vw, 80px);
+}
+
+.editorialFooter {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: var(--gutter);
+  padding-top: 24px;
+  border-top: 1px solid var(--line);
+  align-items: end;
+}
+
+/* --- FeatureCard --- */
+.featureCard {
+  display: block;
+  width: 100%;
+  text-align: left;
+  padding: 0;
+  cursor: pointer;
+}
+
+.featurePlaceholder {
+  aspect-ratio: 4 / 5;
+  width: 100%;
+}
+
+.featureGradient {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  background: linear-gradient(to top, var(--bg) 30%, transparent);
+}
+
+.featureH3 {
+  margin-top: 4px;
+}
+
+.featureMeta {
+  font-size: 14px;
+  color: var(--fg-muted);
+}
+
+.featureLink {
+  margin-top: 16px;
+  font-size: 14px;
+}

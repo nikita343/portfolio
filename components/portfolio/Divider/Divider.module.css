@@ -1,0 +1,36 @@
+.divider {
+  position: relative;
+  height: clamp(20px, 3vw, 28px);
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  background-image: repeating-linear-gradient(
+    -45deg,
+    transparent 0,
+    transparent 8px,
+    var(--pattern) 8px,
+    var(--pattern) 9px
+  );
+  overflow: hidden;
+}
+
+.tall {
+  height: 56px;
+}
+
+.mark {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: var(--line);
+}
+
+.mark:nth-child(1) {
+  left: 25%;
+}
+.mark:nth-child(2) {
+  left: 50%;
+}
+.mark:nth-child(3) {
+  left: 75%;
+}

@@ -1,0 +1,259 @@
+/* --- Top fixed nav bar --- */
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 50;
+  padding: 18px var(--gutter);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  mix-blend-mode: difference;
+  color: #f1f1f3;
+}
+
+:global(html[data-theme="red"]) .nav {
+  mix-blend-mode: normal;
+  color: var(--fg);
+}
+
+.logo {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  letter-spacing: 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.logoDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--accent);
+  display: inline-block;
+}
+
+.right {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+}
+
+.waw {
+  opacity: 0.7;
+  display: inline-flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.wawDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #22c55e;
+  display: inline-block;
+}
+
+.menuBtn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 10px;
+  border: 1px solid currentColor;
+  border-radius: 999px;
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.menuBtnBars {
+  display: inline-block;
+  width: 14px;
+  height: 8px;
+  position: relative;
+}
+
+.menuBtnBars span {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: currentColor;
+}
+
+.menuBtnBars span:first-child {
+  top: 0;
+}
+.menuBtnBars span:last-child {
+  bottom: 0;
+}
+
+@media (max-width: 900px) {
+  .nav {
+    padding: 14px var(--gutter);
+  }
+  .right > .waw {
+    display: none;
+  }
+}
+
+/* --- Drawer overlay --- */
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 90;
+}
+
+.overlayBackdrop {
+  position: absolute;
+  inset: 0;
+  background: var(--bg);
+  transition: opacity 0.5s var(--ease);
+}
+
+.overlayInner {
+  position: absolute;
+  inset: 0;
+  padding: var(--gutter);
+  display: grid;
+  grid-template-rows: 64px 1fr auto;
+  gap: 40px;
+  transition:
+    opacity 0.5s var(--ease),
+    transform 0.5s var(--ease);
+}
+
+.overlayHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.overlayClose {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.overlayCloseX {
+  font-size: 16px;
+}
+
+.cols {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 40px;
+  align-items: end;
+}
+
+@media (max-width: 900px) {
+  .cols {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+.menuList {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.menuItem {
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+  padding: 10px 0;
+  border-top: 1px solid var(--line);
+  text-align: left;
+  font-size: clamp(40px, 7vw, 96px);
+  line-height: 0.95;
+  letter-spacing: -0.03em;
+  font-weight: 500;
+}
+
+.menuItem:hover {
+  padding-left: 16px;
+  transition: padding 0.35s var(--ease);
+  color: var(--accent);
+}
+
+.menuItemNum {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--fg-faint);
+  min-width: 32px;
+}
+
+.menuItemArr {
+  margin-left: 12px;
+  opacity: 0.5;
+}
+
+.appearance {
+  /* container for theme switcher */
+}
+
+.appearanceLabel {
+  margin-bottom: 16px;
+}
+
+.themeList {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.themeBtn {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 12px 14px;
+  border: 1px solid var(--line);
+  background: transparent;
+  text-align: left;
+}
+
+.themeBtnActive {
+  background: var(--bg-elevated);
+}
+
+.themeSwatch {
+  width: 28px;
+  height: 28px;
+  border: 1px solid var(--line);
+  display: inline-block;
+  position: relative;
+}
+
+.themeSwatchDot {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+}
+
+.themeName {
+  flex: 1;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--fg-muted);
+  padding-top: 12px;
+  border-top: 1px solid var(--line);
+}

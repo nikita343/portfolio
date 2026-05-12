@@ -1,0 +1,85 @@
+.section {
+  padding-top: var(--section-y);
+  padding-bottom: var(--section-y);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: var(--gutter);
+}
+
+.label {
+  grid-column: span 12;
+  margin-bottom: 48px;
+}
+
+.portraitCol {
+  grid-column: span 5;
+}
+
+.portrait {
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  background: var(--bg-elevated);
+}
+
+.portraitImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.portraitCaption {
+  margin-top: 16px;
+  display: flex;
+  justify-content: space-between;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  text-transform: uppercase;
+  color: var(--fg-muted);
+  letter-spacing: 0.04em;
+}
+
+.copyCol {
+  grid-column: 7 / span 6;
+}
+
+.heading {
+  margin-bottom: 32px;
+}
+
+.lede {
+  margin-bottom: 24px;
+  color: var(--fg-muted);
+}
+
+.lede2 {
+  color: var(--fg-muted);
+}
+
+.stackGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--gutter);
+  margin-top: 48px;
+}
+
+.stackLabel {
+  margin-bottom: 16px;
+}
+
+.stackList {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-size: 15px;
+}
+
+.stackItem {
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 8px;
+}

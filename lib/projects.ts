@@ -1,0 +1,202 @@
+// FEATURED PROJECTS — used in homepage WorkSection + case-study modal
+
+export interface FeaturedProject {
+  id: string;
+  n: string;
+  title: string;
+  role: string;
+  year: string;
+  tags: string[];
+  summary: string;
+  metrics: { v: string; l: string }[];
+  color: string;
+  label: string;
+  hero?: string;
+  gallery?: { src: string; label: string; span: number; aspect: string }[];
+  caseStudy?: {
+    brief?: { lede?: string; body?: string };
+    approach?: { n: string; t: string; d: string }[];
+    outcome?: { lede?: string; liveUrl?: string };
+    quote?: { text?: string; author?: string; role?: string };
+  };
+}
+
+export const PROJECTS: FeaturedProject[] = [
+  {
+    id: "frame",
+    n: "01",
+    title: "Frame.so",
+    role: "React Developer",
+    year: "2024 — 2025",
+    tags: ["React", "Redux", "TypeScript", "GSAP", "Swiper"],
+    summary:
+      "Implemented major feature modules — interactive visual editor (canvas-based), task boards with drag-and-drop, content suggestion sidebar. Built a small shared component library with consistent styling tokens used across several app sections. Managed complex state with Redux + custom hooks, connected features to REST API endpoints.",
+    metrics: [
+      { v: "3", l: "Major feature modules" },
+      { v: "Redux", l: "State management" },
+      { v: "REST", l: "API integration" },
+    ],
+    color: "oklch(0.92 0.04 25)",
+    label: "FRAME.SO — EDITOR + BOARDS",
+    hero: "/assets/frame/thumbnail-main.avif",
+    gallery: [
+      { src: "/assets/cases/frame/01.png", label: "VISUAL EDITOR · CANVAS", span: 7, aspect: "4/3" },
+      { src: "/assets/cases/frame/02.png", label: "TASK BOARDS · DRAG-AND-DROP", span: 5, aspect: "3/4" },
+      { src: "/assets/cases/frame/03.png", label: "CONTENT SUGGESTION SIDEBAR", span: 4, aspect: "3/4" },
+      { src: "/assets/cases/frame/04.png", label: "SHARED COMPONENT LIBRARY", span: 8, aspect: "16/10" },
+    ],
+    caseStudy: {
+      brief: {
+        lede:
+          "Joined Frame.so to ship significant new feature modules and tighten the shared UI layer across the product.",
+        body:
+          "Built three major modules — a canvas-based interactive visual editor, drag-and-drop task boards, and a content suggestion sidebar — alongside a small shared component library with consistent styling tokens used across several app sections. Managed complex component state with Redux + custom hooks, and connected features to REST API endpoints.",
+      },
+      approach: [
+        { n: "01", t: "Canvas visual editor", d: "Built the interactive editor on a canvas surface with smooth pan / zoom and on-surface controls." },
+        { n: "02", t: "Task boards with drag-and-drop", d: "Shipped board view with drag-and-drop reordering across columns. Optimistic state managed via Redux." },
+        { n: "03", t: "Content suggestion sidebar", d: "Sidebar that surfaces contextual suggestions from REST endpoints, with loading / empty / error states handled." },
+        { n: "04", t: "Shared component library", d: "Built a small set of reusable primitives with consistent styling tokens. Adopted across several app sections to keep things visually coherent." },
+      ],
+      outcome: {
+        lede: "Three major feature modules shipped end-to-end, plus a shared component library reused across the product.",
+      },
+    },
+  },
+  {
+    id: "ezra",
+    n: "02",
+    title: "Ezra Kits",
+    role: "Frontend Engineer",
+    year: "2023",
+    tags: ["Next.js", "TypeScript", "HTML", "SCSS", "Webflow CMS", "GSAP"],
+    summary:
+      "Built reusable Next.js components for the creator dashboard — media-kit views, profile cards, analytics widgets with Framer Motion. Connected the Instagram analytics API with full loading / error / empty states. Wrote Jest unit tests for key UI components, and developed the marketing website with SSR, responsive layout, and basic SEO.",
+    metrics: [
+      { v: "2", l: "Surfaces shipped — dashboard + marketing" },
+      { v: "Jest", l: "UI test framework" },
+      { v: "SSR", l: "Marketing site rendering" },
+    ],
+    color: "oklch(0.88 0.06 290)",
+    label: "EZRAKITS — DASHBOARD + MARKETING",
+    hero: "/assets/ezra/ezra-thumbnail-main.avif",
+    gallery: [
+      { src: "/assets/ezra/ezra-third.avif", label: "DASHBOARD COMPONENT", span: 7, aspect: "4/3" },
+      { src: "/assets/ezra/ezra-fourth.avif", label: "ANALYTICS WIDGET", span: 5, aspect: "3/4" },
+      { src: "/assets/ezra/ezra-fifth.avif", label: "MEDIA KIT VIEW", span: 5, aspect: "3/4" },
+      { src: "/assets/ezra/ezra-six.avif", label: "MARKETING SITE", span: 7, aspect: "4/3" },
+    ],
+    caseStudy: {
+      brief: {
+        lede:
+          "Joined Ezra Kits to extend the creator dashboard's component library and ship the marketing website that surrounds it.",
+        body:
+          "Built media-kit views, profile cards, and analytics widgets with Framer Motion. Connected the Instagram Graph API — fetched followers, engagement, and demographics, displayed in stat cards with loading, error, and empty states handled. Jest unit tests covered the key UI components. Then developed the marketing website with SSR, responsive layout, and basic SEO setup.",
+      },
+      approach: [
+        { n: "01", t: "Reusable dashboard components", d: "Built and extended typed Next.js components — media-kit views, profile cards, analytics widgets — with Framer Motion animations baked in." },
+        { n: "02", t: "Instagram analytics integration", d: "Connected the Instagram Graph API for followers, engagement, and demographics. Stat cards handled loading, error, and empty states explicitly." },
+        { n: "03", t: "Jest unit tests", d: "Wrote tests for the key UI components to keep a regression net around the shared library." },
+        { n: "04", t: "Marketing website", d: "Developed the marketing site with SSR, responsive layout, and a basic SEO setup — same component conventions as the dashboard." },
+      ],
+      outcome: {
+        lede: "Shipped both surfaces — the dashboard component library and the SSR marketing website around it.",
+        liveUrl: "",
+      },
+    },
+  },
+];
+
+// ============================================================
+// ALL PROJECTS — full archive
+// ============================================================
+
+export interface ArchiveProject {
+  id: string;
+  title: string;
+  client: string;
+  year: number;
+  role: string;
+  industry: string;
+  country?: string;
+  stack: string[];
+  status: "live" | "nda" | "archived";
+  live?: string;
+  nda?: boolean;
+  lighthouse?: number;
+  ogImage?: string;
+  ogImageLong?: string;
+  rating?: string;
+  hero?: boolean;
+  caseStudyId?: string;
+  summary?: string;
+}
+
+export const ALL_PROJECTS: ArchiveProject[] = [
+  // ============== 2026 ==============
+  { id: "manypixels", title: "Manypixels Website", client: "Manypixels", year: 2026, role: "Freelance", industry: "Design Services", country: "Singapore", stack: ["HTML", "CSS", "Webflow CMS", "React", "Swiper", "JavaScript"], status: "live", live: "www.manypixels.co", ogImage: "/assets/projects/manypixels.avif" },
+  { id: "korelabs", title: "Korelabs Website", client: "Korelabs", year: 2026, role: "Freelance", industry: "FinTech", country: "United Kingdom", stack: ["HTML", "CSS", "Webflow CMS", "Swiper"], status: "live", live: "korelabs.co", ogImage: "/assets/projects/korelabs.avif" },
+
+  // ============== 2025 ==============
+  { id: "espeo-project", title: "Espeo NDA", client: "Espeo Software", year: 2025, role: "Contributor", industry: "FinTech", country: "Poland", stack: ["React", "TypeScript", "AWS Cognito", "Zustand"], status: "nda", nda: true },
+  { id: "frame-25", title: "Frame.so", client: "Frame", year: 2025, role: "Contributor", industry: "AI Tools", stack: ["React", "Redux", "TypeScript", "GSAP", "Swiper"], status: "live", hero: true, caseStudyId: "frame", summary: "Implemented major feature modules — interactive visual editor (canvas), task boards with drag-and-drop, content suggestion sidebar. Built a shared component library with styling tokens; managed state with Redux + custom hooks; connected to REST APIs.", ogImage: "/assets/frame/thumbnail-main.avif", ogImageLong: "/assets/frame/thumbnail-main-long.avif" },
+  { id: "aetheria", title: "Aetheria E-Shop", client: "Aetheria", year: 2025, role: "Freelance", industry: "E-commerce", country: "Poland", stack: ["React", "TypeScript", "GSAP", "Swiper"], status: "live", live: "aetheria.awakeagency.dev", lighthouse: 99, ogImage: "/assets/projects/aetheria.avif" },
+  { id: "nda-1", title: "Nda project 1", client: "Stera Global", year: 2025, role: "Contributor", industry: "Analytics SaaS", country: "United States", stack: ["React", "Zustand", "Chakra UI"], status: "nda", nda: true, lighthouse: 100 },
+  { id: "nda-2", title: "Nda project 2", client: "Stera Global", year: 2025, role: "Contributor", industry: "EdTech", country: "United States", stack: ["HTML", "CSS", "Webflow CMS"], status: "nda", nda: true, lighthouse: 100 },
+  { id: "sib", title: "Sib Website", client: "Sib", year: 2025, role: "Freelance", industry: "Business Consulting", country: "United States", stack: ["HTML", "CSS", "JavaScript", "GSAP", "Swiper"], status: "live", live: "www.aboutsib.com", ogImage: "/assets/projects/aboutsib.avif", rating: "/assets/projects/aboutsib-rating.avif" },
+  { id: "trustyfy", title: "Trustyfy Website", client: "Unroot Agency", year: 2025, role: "Freelance", industry: "Crypto", country: "Poland", stack: ["HTML", "CSS", "Webflow CMS", "Swiper"], status: "live", live: "www.trustyfy.com", ogImage: "/assets/projects/trustyfy.avif" },
+  { id: "alphagraph", title: "Alphagraph Landing Page", client: "Alphagraph", year: 2025, role: "Freelance", industry: "Venture Capital", country: "United Kingdom", stack: ["HTML", "CSS", "GSAP", "Webflow CMS"], status: "live", live: "www.alphagraph.vc", ogImage: "/assets/projects/alphagraph.vc" },
+  { id: "rhinestone", title: "Rhinestone Website", client: "CanvasAndScript", year: 2025, role: "Freelance", industry: "Crypto", country: "United States", stack: ["HTML", "CSS", "GSAP", "Swiper", "Ghost API"], status: "live", live: "www.rhinestone.dev", ogImage: "/assets/projects/rhinestone.avif" },
+  { id: "nda-3", title: "Nda project 3", client: "Stera Global", year: 2025, role: "Contributor", industry: "Proxy Services", country: "United States", stack: ["HTML", "CSS", "Swiper", "GSAP", "Webflow CMS"], status: "nda", nda: true },
+  { id: "rally", title: "Rally Website", client: "Rally", year: 2025, role: "Freelance", industry: "Fleet Management", country: "Netherlands", stack: ["HTML", "CSS", "Webflow CMS", "TypeScript", "Next.js"], status: "live", live: "www.getrally.com", ogImage: "/assets/projects/rally.avif" },
+  { id: "michailove", title: "Michailove WoW Website", client: "Michailove", year: 2025, role: "Freelance", industry: "Luxury Goods", country: "Switzerland", stack: ["HTML", "CSS", "JavaScript", "GSAP", "Three.js"], status: "live", live: "www.mihailove.com", ogImage: "/assets/projects/michailove.avif" },
+  { id: "pv", title: "Portfolio Ventures", client: "Portfolio Ventures", year: 2025, role: "Freelance", industry: "Venture Capital", country: "United Kingdom", stack: ["HTML", "CSS", "GSAP", "Swiper", "Webflow CMS"], status: "live", live: "www.portfolio.ventures", ogImage: "/assets/projects/portfolio-ventures.avif" },
+  { id: "squirrelled", title: "Squirrelled", client: "CanvasAndScript", year: 2025, role: "Freelance", industry: "EdTech", country: "United Kingdom", stack: ["HTML", "CSS", "GSAP", "Swiper", "Webflow CMS"], status: "live", live: "www.squirrelled.com" },
+  { id: "mdcc", title: "MDCC", client: "MDCC", year: 2025, role: "Freelance", industry: "Construction Services", country: "Lebanon", stack: ["HTML", "CSS", "Webflow CMS"], status: "live", live: "www.mdccinternational.com" },
+
+  // ============== 2024 ==============
+  { id: "ez-newswire", title: "EZ Newswire", client: "EZ Newswire", year: 2024, role: "Freelance", industry: "PR & Communications Tech", country: "United Kingdom", stack: ["HTML", "CSS", "TypeScript", "Webflow CMS"], status: "live", live: "www.eznewswire.com" },
+  { id: "ezra-23", title: "Ezra Kits", client: "Ezra", year: 2024, role: "Contributor", industry: "Creator Tools", stack: ["Next.js", "TypeScript", "HTML", "SCSS", "Webflow CMS", "GSAP"], status: "live", hero: true, caseStudyId: "ezra", summary: "Built reusable Next.js components for the creator dashboard, integrated the Instagram analytics API with full loading/error/empty states, wrote Jest unit tests, and developed the marketing site with SSR + SEO.", ogImage: "/assets/ezra/ezra-thumbnail-main.avif", ogImageLong: "/assets/ezra/ezra-thumbnail-main-long.avif" },
+  { id: "nomee", title: "Nomee", client: "Nomee", year: 2024, role: "Freelance", industry: "Hospitality Tech", country: "Poland", stack: ["HTML", "CSS", "Webflow CMS", "Swiper", "GSAP"], status: "live", live: "kasoterminal.nomee.pl" },
+  { id: "ot-playground", title: "OT Playground", client: "OT Playground", year: 2024, role: "Contributor", industry: "EdTech & Healthcare Resources", country: "Australia", stack: ["HTML", "CSS", "Webflow CMS", "TypeScript", "Next.js"], status: "nda", nda: true, live: "www.otplayground.com" },
+  { id: "dar-sport", title: "DAR Sport Space", client: "DAR Sport Space", year: 2024, role: "Freelance", industry: "Fitness & Wellness", country: "Poland", stack: ["HTML", "CSS", "Webflow CMS", "GSAP"], status: "live", live: "dar-space.com" },
+  { id: "sas", title: "Sports Academy School", client: "Sports Academy School", year: 2024, role: "Freelance", industry: "Education", country: "Lebanon", stack: ["HTML", "CSS", "Webflow CMS"], status: "live", live: "sas.edu.lb" },
+  { id: "bravado-gaming", title: "Bravado Gaming", client: "Bravado Gaming", year: 2024, role: "Freelance", industry: "Gaming Organization", country: "South Africa", stack: ["HTML", "CSS", "Webflow CMS", "Swiper"], status: "live", live: "www.bravadogaming.com" },
+  { id: "alvaria", title: "Alvaria", client: "Alvaria", year: 2024, role: "Contributor", industry: "Customer Experience Software", country: "United States", stack: ["Next.js", "Tailwind CSS", "SEO"], status: "nda", nda: true, live: "www.alvaria.com" },
+  { id: "deal-assistant", title: "Deal Assistant", client: "Deal Assistant", year: 2024, role: "Contributor", industry: "Home Services & Vendor Marketplace", country: "United States", stack: ["HTML", "CSS", "Webflow CMS"], status: "nda", nda: true, live: "deal-assistant.webflow.io" },
+  { id: "covalent", title: "Covalent", client: "Covalent", year: 2024, role: "Freelance", industry: "Industrial SaaS", country: "United States", stack: ["HTML", "CSS", "Webflow CMS"], status: "live", live: "covalentnetworks.com" },
+  { id: "sonicinfra", title: "SonicInfra", client: "SonicInfra", year: 2024, role: "Contributor", industry: "DevOps Infrastructure", country: "United States", stack: ["HTML", "CSS", "Webflow CMS"], status: "nda", nda: true, live: "www.sonicinfra.com" },
+  { id: "bravado-collective", title: "Bravado Collective", client: "Bravado Collective", year: 2024, role: "Freelance", industry: "Content & Creative Agency", country: "South Africa", stack: ["HTML", "CSS", "Webflow CMS"], status: "live", live: "bravado-collective.webflow.io" },
+  { id: "marmot", title: "Marmot", client: "Marmot", year: 2024, role: "Freelance", industry: "Financial Services", country: "Switzerland", stack: ["HTML", "CSS", "Webflow CMS"], status: "live", live: "www.marmot.finance" },
+  { id: "happy-travel", title: "Happy Travel & Tourism", client: "Happy Travel & Tourism", year: 2024, role: "Contributor", industry: "Luxury Destination Management", country: "United States", stack: ["HTML", "CSS", "Webflow CMS"], status: "nda", nda: true, live: "happytravel.com" },
+  { id: "inmotion", title: "InMotion Blueprint", client: "InMotion Blueprint", year: 2024, role: "Contributor", industry: "Personal Development", country: "United States", stack: ["HTML", "CSS", "TypeScript", "Next.js"], status: "nda", nda: true, live: "inmotionprogram.com" },
+  { id: "round-table", title: "The Round Table", client: "The Round Table", year: 2024, role: "Freelance", industry: "Gaming/Esports Digital Media", country: "South Africa", stack: ["HTML", "CSS", "Webflow CMS"], status: "live", live: "www.roundtbl.tv" },
+  { id: "seedbright", title: "Seedbright", client: "Seedbright", year: 2024, role: "Freelance", industry: "IT Consultancy", country: "United States", stack: ["HTML", "CSS", "Webflow CMS"], status: "archived", live: "www.seedbright.com" },
+  { id: "morrow", title: "Morrow", client: "Morrow", year: 2024, role: "Freelance", industry: "Financial Wellness Platform", country: "United States", stack: ["HTML", "CSS", "Webflow CMS"], status: "live", live: "www.usemorrow.com" },
+  { id: "athello", title: "At Hello", client: "At Hello", year: 2024, role: "Freelance", industry: "Brand & Marketing Communications", country: "United States", stack: ["HTML", "CSS", "Webflow CMS"], status: "archived", live: "www.athello.us" },
+  { id: "hamlet-gardens", title: "Hamlet Gardens", client: "Hamlet Gardens", year: 2024, role: "Freelance", industry: "Residential Property Rentals", country: "United Kingdom", stack: ["HTML", "CSS", "Webflow CMS"], status: "live", live: "www.hamletgardens.co.uk" },
+
+  // ============== 2023 ==============
+  { id: "auxility", title: "Auxility", client: "Auxility", year: 2023, role: "Freelance", industry: "FinTech", country: "Canada", stack: ["HTML", "CSS", "GSAP", "Swiper", "Webflow CMS"], status: "live", live: "fintech.auxility.ca" },
+  { id: "upscale", title: "Upscale", client: "Upscale", year: 2023, role: "Freelance", industry: "Interior Design Services", country: "Switzerland", stack: ["HTML", "CSS", "Webflow CMS"], status: "live", live: "www.upscale.ch" },
+  { id: "aimplify", title: "Aimplify", client: "Aimplify", year: 2023, role: "Freelance", industry: "IT Consultancy", country: "Japan", stack: ["HTML", "CSS", "Webflow CMS"], status: "live", live: "www.aimplify.io" },
+  { id: "nda-4", title: "Nda project 4", client: "Undisclosed", year: 2023, role: "Contributor", industry: "SaaS", stack: ["React", "JavaScript", "Context API"], status: "nda", nda: true },
+  { id: "nda-5", title: "Nda project 5", client: "Undisclosed", year: 2023, role: "Contributor", industry: "EdTech", stack: ["HTML", "CSS", "JavaScript", "React"], status: "nda", nda: true },
+  { id: "cybercapitalist", title: "CyberCapitalist", client: "CyberCapitalist", year: 2023, role: "Freelance", industry: "Crypto", country: "Ukraine", stack: ["HTML", "CSS", "JavaScript", "GSAP"], status: "live", live: "cyber-capitalist.webflow.io" },
+
+  // ============== 2022 ==============
+  { id: "bro-traffic", title: "Bro Traffic", client: "Bro Traffic", year: 2022, role: "Freelance", industry: "Consultancy", country: "Ukraine", stack: ["HTML", "CSS", "Webflow CMS"], status: "live", live: "dil-mykhailo.webflow.io" },
+  { id: "picshotstudio", title: "PicshotStudio", client: "PicshotStudio", year: 2022, role: "Freelance", industry: "IT Consultancy", country: "Ukraine", stack: ["HTML", "CSS", "Webflow CMS"], status: "live", live: "www.picshotstudio.com" },
+  { id: "onsaas", title: "OnSaaS", client: "OnSaaS", year: 2022, role: "Freelance", industry: "Comparison Platform", country: "Ukraine", stack: ["HTML", "CSS", "Webflow CMS"], status: "live", live: "www.onsaas.me" },
+];
+
+export const WORK_FACETS = {
+  year: [...new Set(ALL_PROJECTS.map((p) => p.year))].sort((a, b) => b - a),
+  role: [...new Set(ALL_PROJECTS.map((p) => p.role))],
+  industry: [...new Set(ALL_PROJECTS.map((p) => p.industry))].sort(),
+  country: [...new Set(ALL_PROJECTS.map((p) => p.country).filter(Boolean) as string[])].sort(),
+  stack: [...new Set(ALL_PROJECTS.flatMap((p) => p.stack))].sort(),
+  status: [...new Set(ALL_PROJECTS.map((p) => p.status))],
+};
+
+export const HERO_PROJECTS = ALL_PROJECTS.filter((p) => p.hero);

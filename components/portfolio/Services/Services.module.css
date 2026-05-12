@@ -1,0 +1,138 @@
+.section {
+  padding-top: var(--section-y);
+  padding-bottom: var(--section-y);
+}
+
+.headerGrid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: var(--gutter);
+  margin-bottom: 56px;
+}
+
+.headerLeft {
+  grid-column: span 6;
+}
+
+.headerRight {
+  grid-column: 8 / span 5;
+}
+
+.headerDescription {
+  color: var(--fg-muted);
+}
+
+.list {
+  border-top: 1px solid var(--line);
+}
+
+.item {
+  border-bottom: 1px solid var(--line);
+}
+
+.itemBtn {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 60px 1fr 60px;
+  gap: var(--gutter);
+  align-items: center;
+  padding: 24px 0;
+  text-align: left;
+}
+
+.itemNum {
+  color: var(--fg-faint);
+}
+
+.itemToggle {
+  text-align: right;
+  font-size: 22px;
+  transition: transform 0.4s var(--ease);
+}
+
+.itemBody {
+  display: grid;
+  transition: grid-template-rows 0.5s var(--ease);
+}
+
+.itemBodyInner {
+  overflow: hidden;
+}
+
+.itemBodyGrid {
+  display: grid;
+  grid-template-columns: 60px 1.6fr 1fr 60px;
+  gap: var(--gutter);
+  padding-bottom: 28px;
+}
+
+.itemBodyDesc {
+  max-width: 540px;
+}
+
+.deliverablesList {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 14px;
+}
+
+.deliverableItem {
+  display: flex;
+  gap: 8px;
+}
+
+.deliverableDash {
+  color: var(--fg-faint);
+}
+
+.process {
+  margin-top: clamp(80px, 10vw, 140px);
+}
+
+.processLabel {
+  margin-bottom: 24px;
+}
+
+.processGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--gutter);
+}
+
+.processStep {
+  border-top: 1px solid var(--line-strong);
+  padding-top: 16px;
+  padding-right: 16px;
+}
+
+.processNum {
+  margin-bottom: 32px;
+}
+
+.processStepTitle {
+  margin-bottom: 12px;
+}
+
+.processStepBody {
+  font-size: 14px;
+}
+
+@media (max-width: 900px) {
+  .processGrid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+}
+
+@media (max-width: 760px) {
+  .itemBodyGrid {
+    grid-template-columns: 1fr !important;
+  }
+  .itemBodyGrid > .itemBodySpacer {
+    display: none;
+  }
+  .processGrid {
+    grid-template-columns: 1fr !important;
+  }
+}

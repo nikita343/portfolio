@@ -1,0 +1,116 @@
+.section {
+  padding-top: var(--section-y);
+  padding-bottom: var(--section-y);
+}
+
+.headerGrid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: var(--gutter);
+  margin-bottom: 56px;
+}
+
+.headerLeft {
+  grid-column: span 6;
+}
+
+.headerRight {
+  grid-column: 8 / span 5;
+}
+
+.headerLabel {
+  margin-bottom: 12px;
+}
+
+.headerDesc {
+  color: var(--fg-muted);
+}
+
+/* --- CalFrame --- */
+.frame {
+  position: relative;
+  border: 1px solid var(--line-strong);
+  background: var(--bg);
+  padding: clamp(20px, 4vw, 56px);
+  overflow: hidden;
+}
+
+.frameDots {
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(circle, var(--pattern) 1px, transparent 1.2px);
+  background-size: 22px 22px;
+  -webkit-mask-image: radial-gradient(ellipse 55% 65% at center, transparent 30%, #000 95%);
+  mask-image: radial-gradient(ellipse 55% 65% at center, transparent 30%, #000 95%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.frameHatch {
+  position: absolute;
+  width: min(220px, 24%);
+  height: min(220px, 55%);
+  background-image: repeating-linear-gradient(
+    -45deg,
+    transparent 0,
+    transparent 8px,
+    var(--pattern) 8px,
+    var(--pattern) 9px
+  );
+  pointer-events: none;
+  z-index: 0;
+}
+
+.frameHatchTL {
+  top: 0;
+  left: 0;
+  border-right: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  -webkit-mask-image: linear-gradient(135deg, #000 0%, transparent 100%);
+  mask-image: linear-gradient(135deg, #000 0%, transparent 100%);
+}
+
+.frameHatchBR {
+  bottom: 0;
+  right: 0;
+  border-left: 1px solid var(--line);
+  border-top: 1px solid var(--line);
+  -webkit-mask-image: linear-gradient(-45deg, #000 0%, transparent 100%);
+  mask-image: linear-gradient(-45deg, #000 0%, transparent 100%);
+}
+
+.crosshair {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  color: var(--line-strong);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.crosshairH {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: currentColor;
+}
+
+.crosshairV {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: currentColor;
+}
+
+.calEmbed {
+  width: 100%;
+  min-height: 720px;
+  overflow: hidden;
+  background: transparent;
+  position: relative;
+  z-index: 1;
+}

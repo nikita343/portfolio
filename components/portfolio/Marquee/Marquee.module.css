@@ -1,0 +1,39 @@
+.wrap {
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  overflow: hidden;
+  padding: 24px 0;
+}
+
+.track {
+  display: flex;
+  gap: 64px;
+  white-space: nowrap;
+  animation: marquee 60s linear infinite;
+}
+
+.item {
+  display: inline-flex;
+  align-items: center;
+  gap: 16px;
+  font-size: clamp(28px, 4vw, 48px);
+  letter-spacing: -0.02em;
+  font-weight: 500;
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  background: var(--accent);
+  border-radius: 50%;
+  display: inline-block;
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-33.333%);
+  }
+}
