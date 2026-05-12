@@ -1,7 +1,10 @@
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
+import { CookieConsent } from "@/components/portfolio/CookieConsent/CookieConsent";
+import { Analytics } from "@/components/portfolio/Analytics/Analytics";
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://mykyta.dev";
+const SITE_URL =
+  process.env.NEXT_PUBLIC_SITE_URL || "https://www.awakeagency.dev/";
 const OG_IMAGE = "/assets/og-image.png";
 
 export const metadata: Metadata = {
@@ -120,7 +123,11 @@ export default function RootLayout({
     <html lang="en" data-theme="light" suppressHydrationWarning>
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link
+          rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossOrigin="anonymous"
+        />
         <link
           href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&display=swap"
           rel="stylesheet"
@@ -140,7 +147,11 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
         />
       </head>
-      <body>{children}</body>
+      <body>
+        {children}
+        <CookieConsent />
+        <Analytics />
+      </body>
     </html>
   );
 }
