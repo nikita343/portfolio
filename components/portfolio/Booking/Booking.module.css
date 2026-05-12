@@ -114,3 +114,8 @@
   position: relative;
   z-index: 1;
 }
+
+.calEmbed iframe,
+.calEmbed > * {
+  background: transparent !important;
+}

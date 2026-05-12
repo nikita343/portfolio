@@ -7,44 +7,46 @@ const SERVICES = [
   {
     n: "01",
     title: "React / Next.js development",
-    desc: "Owning product features end-to-end — from Figma to production. Component architecture, state management, API integration, edge cases.",
-    deliverables: ["Feature modules", "Component libraries", "API integration", "Performance work"],
+    desc: "Full product UI development. Dashboards, SaaS interfaces, editors, AI-powered tools — TypeScript-first, component-driven, with thoughtful state management (Redux / Zustand) and clean architecture.",
+    deliverables: [
+      "Feature modules",
+      "Component libraries",
+      "State architecture",
+      "Performance work",
+    ],
   },
   {
     n: "02",
-    title: "Webflow design & development",
-    desc: "Marketing sites and component systems on Webflow. Custom interactions, headless CMS, Lighthouse-perfect. Webflow Partner.",
-    deliverables: ["Marketing sites", "CMS architecture", "GSAP interactions", "Memberships"],
+    title: "Custom development",
+    desc: "Beyond UI: third-party integrations and custom logic. REST APIs, HubSpot, Mapbox, Instagram analytics, AWS Cognito auth — connecting product surfaces to the systems they depend on.",
+    deliverables: [
+      "API integrations",
+      "Auth & access control",
+      "CMS / analytics connections",
+      "Custom feature work",
+    ],
   },
   {
     n: "03",
-    title: "Full product UI",
-    desc: "Dashboards, SaaS interfaces, AI-powered tools. Real-time data, complex tables, command palettes, multi-tenant role-based UI.",
-    deliverables: ["Dashboards", "Editors", "AI interfaces", "Internal tools"],
+    title: "Website development",
+    desc: "Full-scale marketing sites end-to-end. UX/UI direction, build in Next.js or Webflow depending on the stack, animations, CMS, SEO and performance. One contact, ship-ready outcome.",
+    deliverables: [
+      "UX & UI direction",
+      "Build (Next.js / Webflow)",
+      "CMS architecture",
+      "SEO & performance",
+    ],
   },
   {
     n: "04",
-    title: "Landing pages & marketing",
-    desc: "High-conversion landing pages — built either as Next.js routes or Webflow projects, depending on stack.",
-    deliverables: ["Hero sections", "Animation systems", "CMS templates", "A/B variants"],
-  },
-  {
-    n: "05",
-    title: "Design systems",
-    desc: "Token-driven systems with primitives, recipes, and docs. Storybook, theming, accessibility baked in.",
-    deliverables: ["Token systems", "Primitives", "Storybook", "Migration plans"],
-  },
-  {
-    n: "06",
-    title: "Animations & motion",
-    desc: "GSAP, Framer Motion, scroll-driven storytelling. Motion that earns its place — never decoration.",
-    deliverables: ["Hero moments", "Scroll choreography", "State transitions", "Micro-interactions"],
-  },
-  {
-    n: "07",
-    title: "Branding",
-    desc: "Light-touch brand work in service of digital products. Wordmarks, type pairings, color systems for digital products.",
-    deliverables: ["Wordmarks", "Type systems", "Color systems", "Digital guidelines"],
+    title: "Webflow development",
+    desc: "Webflow Partner. Marketing sites and component systems with CMS, memberships, custom GSAP interactions, and Lighthouse-perfect performance.",
+    deliverables: [
+      "Marketing sites",
+      "CMS architecture",
+      "GSAP interactions",
+      "Memberships",
+    ],
   },
 ];
 
@@ -67,16 +69,16 @@ export const ServicesSection = () => {
               <span className="num">[03]</span> SERVICES — WHAT I DO
             </div>
             <h2 className="h2">
-              Seven things, done
+              Four lanes,
               <br />
-              <span className="italic">properly.</span>
+              <span className="italic">done properly.</span>
             </h2>
           </div>
           <div className={styles.headerRight}>
             <p className={`body-lg ${styles.headerDescription}`}>
-              Most engagements span product UI and marketing surfaces. I work as a single
-              contributor with founders, or embed into existing product teams as the dedicated
-              frontend engineer.
+              Narrow on purpose. I&apos;d rather go deep on a few things than spread thin
+              across many. I work as a single contributor with founders, or embed into product
+              teams as the dedicated frontend engineer.
             </p>
           </div>
         </div>
