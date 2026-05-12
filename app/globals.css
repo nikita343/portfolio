@@ -24,7 +24,7 @@
 
   /* type */
   --font-sans: 'Inter Tight', 'AeonikFallback', -apple-system, 'Helvetica Neue', sans-serif;
-  --font-mono: 'JetBrains Mono', 'IBM Plex Mono', ui-monospace, monospace;
+  --font-mono: var(--font-mono-next), 'JetBrains Mono', 'IBM Plex Mono', ui-monospace, monospace;
 
   /* spacing */
   --gutter: clamp(16px, 3vw, 32px);

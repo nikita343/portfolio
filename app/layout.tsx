@@ -1,7 +1,15 @@
 import type { Metadata, Viewport } from "next";
+import { JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { CookieConsent } from "@/components/portfolio/CookieConsent/CookieConsent";
 import { Analytics } from "@/components/portfolio/Analytics/Analytics";
+
+const jetbrainsMono = JetBrains_Mono({
+  subsets: ["latin"],
+  weight: ["400", "500"],
+  display: "swap",
+  variable: "--font-mono-next",
+});
 
 const SITE_URL =
   process.env.NEXT_PUBLIC_SITE_URL || "https://www.awakeagency.dev/";
@@ -120,7 +128,12 @@ export default function RootLayout({
   };
 
   return (
-    <html lang="en" data-theme="light" suppressHydrationWarning>
+    <html
+      lang="en"
+      data-theme="light"
+      suppressHydrationWarning
+      className={jetbrainsMono.variable}
+    >
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link
@@ -129,7 +142,7 @@ export default function RootLayout({
           crossOrigin="anonymous"
         />
         <link
-          href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap"
           rel="stylesheet"
         />
         <script

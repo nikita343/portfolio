@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState, type ReactNode } from "react";
+import { useEffect, useRef, useState, type ReactNode } from "react";
 import Cal, { getCalApi } from "@calcom/embed-react";
 import styles from "./Booking.module.css";
 
@@ -115,6 +115,25 @@ const CalFrame = ({ children }: { children: ReactNode }) => (
 );
 
 export const Booking = () => {
+  const frameRef = useRef<HTMLDivElement>(null);
+  const [shouldMount, setShouldMount] = useState(false);
+
+  useEffect(() => {
+    const el = frameRef.current;
+    if (!el || shouldMount) return;
+    const io = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setShouldMount(true);
+          io.disconnect();
+        }
+      },
+      { rootMargin: "400px 0px" },
+    );
+    io.observe(el);
+    return () => io.disconnect();
+  }, [shouldMount]);
+
   return (
     <section id="book" className={styles.section}>
       <div className="container">
@@ -138,9 +157,9 @@ export const Booking = () => {
           </div>
         </div>
 
-        <CalFrame>
-          <CalComEmbed />
-        </CalFrame>
+        <div ref={frameRef}>
+          <CalFrame>{shouldMount ? <CalComEmbed /> : null}</CalFrame>
+        </div>
       </div>
     </section>
   );

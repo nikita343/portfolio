@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { memo, useState, useEffect } from "react";
 import styles from "./ScrollProgress.module.css";
 
 const SECTIONS = [
@@ -12,7 +12,7 @@ const SECTIONS = [
   { id: "book", n: "06", label: "BOOKING" },
 ];
 
-export const ScrollProgress = () => {
+const ScrollProgressImpl = () => {
   const [p, setP] = useState(0);
   const [section, setSection] = useState({ n: "01", label: "INDEX" });
 
@@ -54,3 +54,5 @@ export const ScrollProgress = () => {
     </>
   );
 };
+
+export const ScrollProgress = memo(ScrollProgressImpl);

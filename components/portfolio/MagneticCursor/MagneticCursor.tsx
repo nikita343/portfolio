@@ -1,16 +1,22 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { memo, useEffect, useRef, useState } from "react";
 import styles from "./MagneticCursor.module.css";
 
-export const MagneticCursor = () => {
+const MagneticCursorImpl = () => {
   const ref = useRef<HTMLDivElement>(null);
   const dotRef = useRef<HTMLDivElement>(null);
   const labelRef = useRef<HTMLDivElement>(null);
   const stateRef = useRef({ x: 0, y: 0, tx: 0, ty: 0, hover: false, label: "" });
+  const [enabled, setEnabled] = useState(false);
 
   useEffect(() => {
     if (matchMedia("(hover: none)").matches) return;
+    setEnabled(true);
+  }, []);
+
+  useEffect(() => {
+    if (!enabled) return;
     const s = stateRef.current;
 
     const onMove = (e: MouseEvent) => {
@@ -55,7 +61,9 @@ export const MagneticCursor = () => {
       window.removeEventListener("mouseleave", onLeave);
       cancelAnimationFrame(raf);
     };
-  }, []);
+  }, [enabled]);
+
+  if (!enabled) return null;
 
   return (
     <div ref={ref} className={styles.cursor}>
@@ -64,3 +72,5 @@ export const MagneticCursor = () => {
     </div>
   );
 };
+
+export const MagneticCursor = memo(MagneticCursorImpl);

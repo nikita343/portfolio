@@ -1,3 +1,4 @@
+import { memo } from "react";
 import styles from "./Footer.module.css";
 
 interface FooterLink {
@@ -43,7 +44,7 @@ const linkProps = (l: FooterLink) => ({
   ...(l.download ? { download: true } : {}),
 });
 
-export const Footer = () => {
+const FooterImpl = () => {
   return (
     <footer className={styles.footer}>
       <div className="container">
@@ -102,3 +103,5 @@ export const Footer = () => {
     </footer>
   );
 };
+
+export const Footer = memo(FooterImpl);

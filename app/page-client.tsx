@@ -1,23 +1,50 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { lazy, Suspense, useState, useEffect, useCallback } from "react";
 import { Nav } from "@/components/portfolio/Nav/Nav";
 import { Hero } from "@/components/portfolio/Hero/Hero";
-import { WorkSection } from "@/components/portfolio/Work/Work";
-import { ServicesSection } from "@/components/portfolio/Services/Services";
 import { Marquee } from "@/components/portfolio/Marquee/Marquee";
-import { AboutSection } from "@/components/portfolio/About/About";
-import { Booking } from "@/components/portfolio/Booking/Booking";
-import { Footer } from "@/components/portfolio/Footer/Footer";
+import { Divider } from "@/components/portfolio/Divider/Divider";
 import { ScrollProgress } from "@/components/portfolio/ScrollProgress/ScrollProgress";
 import { MagneticCursor } from "@/components/portfolio/MagneticCursor/MagneticCursor";
-import { PinnedShowcase } from "@/components/portfolio/PinnedShowcase/PinnedShowcase";
-import { InvertOnEnter } from "@/components/portfolio/InvertOnEnter/InvertOnEnter";
-import { CaseStudy } from "@/components/portfolio/CaseStudy/CaseStudy";
-import { Divider } from "@/components/portfolio/Divider/Divider";
 import type { FeaturedProject } from "@/lib/projects";
 
+const WorkSection = lazy(() =>
+  import("@/components/portfolio/Work/Work").then((m) => ({ default: m.WorkSection })),
+);
+const PinnedShowcase = lazy(() =>
+  import("@/components/portfolio/PinnedShowcase/PinnedShowcase").then((m) => ({
+    default: m.PinnedShowcase,
+  })),
+);
+const ServicesSection = lazy(() =>
+  import("@/components/portfolio/Services/Services").then((m) => ({
+    default: m.ServicesSection,
+  })),
+);
+const AboutSection = lazy(() =>
+  import("@/components/portfolio/About/About").then((m) => ({ default: m.AboutSection })),
+);
+const InvertOnEnter = lazy(() =>
+  import("@/components/portfolio/InvertOnEnter/InvertOnEnter").then((m) => ({
+    default: m.InvertOnEnter,
+  })),
+);
+const Booking = lazy(() =>
+  import("@/components/portfolio/Booking/Booking").then((m) => ({ default: m.Booking })),
+);
+const Footer = lazy(() =>
+  import("@/components/portfolio/Footer/Footer").then((m) => ({ default: m.Footer })),
+);
+const CaseStudy = lazy(() =>
+  import("@/components/portfolio/CaseStudy/CaseStudy").then((m) => ({ default: m.CaseStudy })),
+);
+
 type Theme = "light" | "dark" | "red";
+
+const SectionFallback = ({ minHeight = 400 }: { minHeight?: number }) => (
+  <div aria-hidden="true" style={{ minHeight, width: "100%" }} />
+);
 
 export default function HomeClient() {
   const [theme, setThemeState] = useState<Theme>("light");
@@ -34,15 +61,15 @@ export default function HomeClient() {
     } catch {}
   }, []);
 
-  const setTheme = (t: Theme) => {
+  const setTheme = useCallback((t: Theme) => {
     setThemeState(t);
     try {
       localStorage.setItem("portfolio_theme", t);
     } catch {}
     document.documentElement.setAttribute("data-theme", t);
-  };
+  }, []);
 
-  const scrollTo = (id: string) => {
+  const scrollTo = useCallback((id: string) => {
     if (id === "home") {
       window.scrollTo({ top: 0, behavior: "smooth" });
       return;
@@ -52,7 +79,7 @@ export default function HomeClient() {
       const y = el.getBoundingClientRect().top + window.scrollY - 24;
       window.scrollTo({ top: y, behavior: "smooth" });
     }
-  };
+  }, []);
 
   useEffect(() => {
     const io = new IntersectionObserver(
@@ -80,6 +107,8 @@ export default function HomeClient() {
     };
   }, []);
 
+  const handleClose = useCallback(() => setOpenCase(null), []);
+
   return (
     <>
       <ScrollProgress />
@@ -93,30 +122,46 @@ export default function HomeClient() {
 
         <Marquee />
 
-        <WorkSection onOpen={setOpenCase} />
+        <Suspense fallback={<SectionFallback minHeight={600} />}>
+          <WorkSection onOpen={setOpenCase} />
+        </Suspense>
 
         <Divider />
 
-        <PinnedShowcase />
+        <Suspense fallback={<SectionFallback minHeight={800} />}>
+          <PinnedShowcase />
+        </Suspense>
 
         <Divider />
 
-        <ServicesSection />
+        <Suspense fallback={<SectionFallback minHeight={600} />}>
+          <ServicesSection />
+        </Suspense>
 
         <Divider />
 
-        <InvertOnEnter theme="dark">
-          <AboutSection />
-        </InvertOnEnter>
+        <Suspense fallback={<SectionFallback minHeight={600} />}>
+          <InvertOnEnter theme="dark">
+            <AboutSection />
+          </InvertOnEnter>
+        </Suspense>
 
         <Divider />
 
-        <Booking />
+        <Suspense fallback={<SectionFallback minHeight={800} />}>
+          <Booking />
+        </Suspense>
       </main>
 
-      <Footer />
+      <Suspense fallback={<SectionFallback minHeight={300} />}>
+        <Footer />
+      </Suspense>
 
-      {openCase && <CaseStudy project={openCase} onClose={() => setOpenCase(null)} />}
+      {openCase && (
+        <Suspense fallback={null}>
+          <CaseStudy project={openCase} onClose={handleClose} />
+        </Suspense>
+      )}
     </>
   );
 }

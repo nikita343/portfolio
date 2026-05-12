@@ -1,3 +1,4 @@
+import { memo } from "react";
 import styles from "./Marquee.module.css";
 
 const ITEMS = [
@@ -15,12 +16,13 @@ const ITEMS = [
   "Design Systems",
 ];
 
-export const Marquee = () => {
-  const all = [...ITEMS, ...ITEMS, ...ITEMS];
+const ALL_ITEMS = [...ITEMS, ...ITEMS, ...ITEMS];
+
+const MarqueeImpl = () => {
   return (
     <div className={styles.wrap}>
       <div className={styles.track}>
-        {all.map((it, i) => (
+        {ALL_ITEMS.map((it, i) => (
           <span key={i} className={styles.item}>
             {it}
             <span className={styles.dot} />
@@ -30,3 +32,5 @@ export const Marquee = () => {
     </div>
   );
 };
+
+export const Marquee = memo(MarqueeImpl);
