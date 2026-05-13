@@ -6,55 +6,66 @@ import styles from "./Services.module.css";
 const SERVICES = [
   {
     n: "01",
-    title: "React / Next.js development",
-    desc: "Full product UI development. Dashboards, SaaS interfaces, editors, AI-powered tools — TypeScript-first, component-driven, with thoughtful state management (Redux / Zustand) and clean architecture.",
+    title: "Product engineering",
+    desc: "End-to-end feature ownership in React and Next.js. I take work from product conversation to production — building user-facing flows, complex state, and the architecture that holds them together. TypeScript-first, component-driven, with state managed in Redux or Zustand and performance treated as a first-class concern, not a cleanup pass.",
     deliverables: [
       "Feature modules",
-      "Component libraries",
       "State architecture",
+      "Component systems",
       "Performance work",
     ],
   },
   {
     n: "02",
-    title: "Custom development",
-    desc: "Beyond UI: third-party integrations and custom logic. REST APIs, HubSpot, Mapbox, Instagram analytics, AWS Cognito auth — connecting product surfaces to the systems they depend on.",
+    title: "Internal tools & back-office systems",
+    desc: "Admin and operations interfaces that teams actually run on. Configuration UIs, data-dense dashboards, complex tables with filtering and bulk actions, role-based access — turning business logic into something operators, finance, and content teams can trust and move fast in.",
     deliverables: [
-      "API integrations",
-      "Auth & access control",
-      "CMS / analytics connections",
-      "Custom feature work",
+      "Admin & back-office UIs",
+      "Configuration interfaces",
+      "Data tables & dashboards",
+      "RBAC + auth flows",
     ],
   },
   {
     n: "03",
-    title: "Website development",
-    desc: "Full-scale marketing sites end-to-end. UX/UI direction, build in Next.js or Webflow depending on the stack, animations, CMS, SEO and performance. One contact, ship-ready outcome.",
+    title: "AI product development",
+    desc: "AI-powered product surfaces built to feel reliable, fast, and product-grade — not demo-grade. LLM integrations, streaming responses, agent and assistant UIs, semantic search, prompt and tool orchestration. The layer where AI stops being a feature flag and starts being a product.",
     deliverables: [
-      "UX & UI direction",
-      "Build (Next.js / Webflow)",
-      "CMS architecture",
-      "SEO & performance",
+      "LLM integrations",
+      "Streaming UIs",
+      "Agent & assistant interfaces",
+      "Prompt + tool orchestration",
     ],
   },
   {
     n: "04",
-    title: "Webflow development",
-    desc: "Webflow Partner. Marketing sites and component systems with CMS, memberships, custom GSAP interactions, and Lighthouse-perfect performance.",
+    title: "Design systems & frontend platform",
+    desc: "Shared component libraries, design tokens, and frontend infrastructure that scale with the team. Consistent patterns across products, documented primitives, and the kind of foundation that makes every next feature ship faster — not the kind that quietly forks and rots.",
     deliverables: [
-      "Marketing sites",
+      "Component libraries",
+      "Design tokens",
+      "Documentation & DX",
+      "Tooling & build setup",
+    ],
+  },
+  {
+    n: "05",
+    title: "Marketing & brand sites",
+    desc: "Marketing sites and product landings in Next.js or Webflow — the stack call depends on who owns the site after launch. Performance-first build, considered motion, CMS the marketing team actually runs themselves. Accessible by default, fast on Lighthouse, structured so the next campaign doesn't need an engineer to ship.",
+    deliverables: [
+      "Build (Next.js / Webflow)",
       "CMS architecture",
-      "GSAP interactions",
-      "Memberships",
+      "Motion & interactions",
+      "SEO & performance",
     ],
   },
 ];
 
 const PROCESS = [
-  { n: "01", t: "Brief", d: "30-min call. We map the problem, the constraints, and what success looks like." },
-  { n: "02", t: "Scope", d: "Written proposal with phases, deliverables, dependencies. No surprises later." },
-  { n: "03", t: "Build", d: "Daily progress in Linear/Loom. Code in your repo from day one. Async by default." },
-  { n: "04", t: "Ship", d: "Hand-off, docs, optional retainer for continuous improvement." },
+  { n: "01", t: "Align", d: "Initial conversation on product context, team setup, constraints, and what success actually looks like." },
+  { n: "02", t: "Plan", d: "Written approach: phases, technical decisions, dependencies, how the work plugs into the team's existing flow." },
+  { n: "03", t: "Build", d: "In your repo, in your tools, in your team's rhythm. PRs, design reviews, async by default. Decisions owned, not deferred." },
+  { n: "04", t: "Ship & evolve", d: "Production hand-off with docs and context. Continued involvement for iteration, follow-up work, and what comes next." },
 ];
 
 export const ServicesSection = () => {
@@ -66,19 +77,19 @@ export const ServicesSection = () => {
         <div data-grid12="" className={styles.headerGrid}>
           <div className={styles.headerLeft}>
             <div className="eyebrow" style={{ marginBottom: 12 }}>
-              <span className="num">[03]</span> SERVICES — WHAT I DO
+              <span className="num">[03]</span> SERVICES — WHERE I CONTRIBUTE
             </div>
             <h2 className="h2">
-              Four lanes,
+              Product engineering,
               <br />
-              <span className="italic">done properly.</span>
+              <span className="italic">end to end.</span>
             </h2>
           </div>
           <div className={styles.headerRight}>
             <p className={`body-lg ${styles.headerDescription}`}>
-              Narrow on purpose. I&apos;d rather go deep on a few things than spread thin
-              across many. I work as a single contributor with founders, or embed into product
-              teams as the dedicated frontend engineer.
+              I embed into product teams as a frontend engineer — owning features from
+              product conversation through production. Independent enough to drive
+              decisions, accountable enough to ship the outcomes that follow them.
             </p>
           </div>
         </div>
