@@ -120,6 +120,23 @@ export const Nav = ({ theme, setTheme, scrollTo }: NavProps) => {
   const [time, setTime] = useState("");
 
   useEffect(() => {
+    if (!open) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setOpen(false);
+    };
+    const { overflow, paddingRight } = document.body.style;
+    const scrollbarW = window.innerWidth - document.documentElement.clientWidth;
+    document.body.style.overflow = "hidden";
+    if (scrollbarW > 0) document.body.style.paddingRight = `${scrollbarW}px`;
+    window.addEventListener("keydown", onKey);
+    return () => {
+      window.removeEventListener("keydown", onKey);
+      document.body.style.overflow = overflow;
+      document.body.style.paddingRight = paddingRight;
+    };
+  }, [open]);
+
+  useEffect(() => {
     const update = () => {
       const d = new Date();
       const opts: Intl.DateTimeFormatOptions = {

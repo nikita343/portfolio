@@ -10,14 +10,21 @@ export const HeroIndex = ({ scrollTo }: { scrollTo: (id: string) => void }) => {
       <div className={`container ${styles.indexInner}`}>
         <div style={{ width: "100%" }}>
           <div className="eyebrow" style={{ marginBottom: 24 }}>
-            <span className="num">[ 2026 / VOL.04 ]</span> FREELANCE — ALSO OPEN TO FULL-TIME ROLES
+            <span className="num">[ 2026 / VOL.04 ]</span> OPEN TO FULL-TIME
+            ROLES
           </div>
           <h1 className={styles.indexHeading}>
             <span className="reveal-line">
               <span style={revealStyle(".05s", mounted)}>I build</span>
             </span>
             <span className="reveal-line">
-              <span style={{ ...revealStyle(".15s", mounted), fontFamily: "'Instrument Serif', serif", fontStyle: "italic" }}>
+              <span
+                style={{
+                  ...revealStyle(".15s", mounted),
+                  fontFamily: "'Instrument Serif', serif",
+                  fontStyle: "italic",
+                }}
+              >
                 thoughtful
               </span>
             </span>
@@ -37,18 +44,30 @@ export const HeroIndex = ({ scrollTo }: { scrollTo: (id: string) => void }) => {
         <div data-grid12="" className={styles.indexFooterGrid}>
           <div style={{ gridColumn: "span 4" }}>
             <p className={`body ${styles.indexFooterBlurb}`}>
-              React, Next.js, TypeScript. Five years building product UI — Notion-like editors,
-              creator analytics, AI-powered tools.
+              React, Next.js, TypeScript. Five years building product UI —
+              Notion-like editors, creator analytics, AI-powered tools.
             </p>
           </div>
           <div style={{ gridColumn: "span 4" }}>
-            <div className="eyebrow" style={{ marginBottom: 8 }}>NOW</div>
+            <div className="eyebrow" style={{ marginBottom: 8 }}>
+              NOW
+            </div>
             <div style={{ fontSize: 14 }}>
               Building component library for an AI-native dashboard.
             </div>
           </div>
-          <div style={{ gridColumn: "span 4", display: "flex", justifyContent: "flex-end" }}>
-            <button onClick={() => scrollTo("work")} className="link-line" style={{ fontSize: 14 }}>
+          <div
+            style={{
+              gridColumn: "span 4",
+              display: "flex",
+              justifyContent: "flex-end",
+            }}
+          >
+            <button
+              onClick={() => scrollTo("work")}
+              className="link-line"
+              style={{ fontSize: 14 }}
+            >
               Scroll — selected work <span className="arr">↓</span>
             </button>
           </div>
