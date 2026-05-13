@@ -7,11 +7,11 @@ const STACK = [
   "SEO, WCAG, RWD, Figma, Git/CI/CD",
 ];
 
-const RECOGNITION = [
-  "Webflow Partner — 2023",
-  "30+ 5-star client reviews",
-  "Upwork · Top Rated · 100% Job Success",
-  "5y professional · since 2021",
+const BACKGROUND = [
+  "5+ years building product UI",
+  "B.Sc. Information Technology — 2024",
+  "Cross-functional product teams · Agile/Scrum",
+  "EN C1 · PL B2 · UK / RU native",
 ];
 
 export const AboutSection = () => {
@@ -54,8 +54,9 @@ export const AboutSection = () => {
               actually want to touch.
             </p>
             <p className={`body-lg ${styles.lede2}`}>
-              Looking for a full-time role in a product team — and available for
-              selected freelance projects in the meantime.
+              Looking for a full-time role in a product team — somewhere features
+              are owned end-to-end and decisions sit close to the code. Open to
+              short engagements with product teams in the meantime.
             </p>
 
             <div className={styles.stackGrid}>
@@ -78,14 +79,14 @@ export const AboutSection = () => {
               </div>
               <div>
                 <div className={`eyebrow ${styles.stackLabel}`}>
-                  RECOGNITION
+                  BACKGROUND
                 </div>
                 <ul className={styles.stackList}>
-                  {RECOGNITION.map((s, i) => (
+                  {BACKGROUND.map((s, i) => (
                     <li
                       key={s}
                       className={
-                        i < RECOGNITION.length - 1
+                        i < BACKGROUND.length - 1
                           ? styles.stackItem
                           : undefined
                       }

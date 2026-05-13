@@ -25,8 +25,8 @@ const PANELS = [
   {
     n: "04",
     label: "COLLABORATION",
-    t: "Async by default.",
-    d: "Daily Loom updates. Code in your repo from day one. Reviews left tighter than I found them.",
+    t: "Inside the team.",
+    d: "Decisions documented in PRs. Design and code reviews left tighter than I found them. In standups and rhythm from week one — embedded, not adjacent.",
   },
 ];
 

@@ -54,13 +54,13 @@ const FooterImpl = () => {
               <span className="num">[ END ]</span> ELSEWHERE
             </div>
             <h2 className={`display-md ${styles.heading}`}>
-              Have a project?
+              Building something?
               <br />
               <a
                 href="mailto:nicksbureau@gmail.com"
                 className={`link-line italic ${styles.headingLink}`}
               >
-                Contact me now<span className="arr">↗</span>
+                Email me<span className="arr">↗</span>
               </a>
             </h2>
           </div>

@@ -15,7 +15,7 @@ export const HeroIndex = ({ scrollTo }: { scrollTo: (id: string) => void }) => {
           </div>
           <h1 className={styles.indexHeading}>
             <span className="reveal-line">
-              <span style={revealStyle(".05s", mounted)}>I build</span>
+              <span style={revealStyle(".05s", mounted)}>I ship</span>
             </span>
             <span className="reveal-line">
               <span
@@ -25,15 +25,15 @@ export const HeroIndex = ({ scrollTo }: { scrollTo: (id: string) => void }) => {
                   fontStyle: "italic",
                 }}
               >
-                thoughtful
+                product
               </span>
             </span>
             <span className="reveal-line">
-              <span style={revealStyle(".25s", mounted)}>frontends for</span>
+              <span style={revealStyle(".25s", mounted)}>features</span>
             </span>
             <span className="reveal-line">
               <span style={revealStyle(".35s", mounted)}>
-                SaaS &amp; dashboards<span className={styles.accentDot}>.</span>
+                end to end<span className={styles.accentDot}>.</span>
               </span>
             </span>
           </h1>

@@ -5,7 +5,7 @@ const ITEMS = [
   "React",
   "Next.js",
   "TypeScript",
-  "Webflow Partner",
+  "Webflow",
   "GSAP",
   "Framer Motion",
   "Tailwind",
