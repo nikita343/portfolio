@@ -110,7 +110,7 @@ const CalFrame = ({ children }: { children: ReactNode }) => (
         <span className={styles.crosshairV} />
       </div>
     ))}
-    <div className={styles.calEmbed}>{children}</div>
+    <div className={styles.calEmbed} data-lenis-prevent>{children}</div>
   </div>
 );
 

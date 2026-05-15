@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { PROJECTS, type FeaturedProject } from "@/lib/projects";
+import { getLenis } from "@/lib/smooth-scroll";
 import styles from "./CaseStudy.module.css";
 
 interface CaseImageProps {
@@ -36,14 +37,18 @@ interface CaseStudyProps {
 
 export const CaseStudy = ({ project, onClose }: CaseStudyProps) => {
   useEffect(() => {
-    if (project) {
+    if (!project) return;
+    const lenis = getLenis();
+    if (lenis) {
+      lenis.stop();
+      lenis.scrollTo(0, { immediate: true, force: true });
+    } else {
       document.body.style.overflow = "hidden";
       window.scrollTo({ top: 0, behavior: "instant" as ScrollBehavior });
-    } else {
-      document.body.style.overflow = "";
     }
     return () => {
-      document.body.style.overflow = "";
+      if (lenis) lenis.start();
+      else document.body.style.overflow = "";
     };
   }, [project]);
 

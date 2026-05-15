@@ -1,3 +1,7 @@
+"use client";
+
+import { useRef } from "react";
+import { motion, useScroll, useTransform, useReducedMotion } from "framer-motion";
 import styles from "./About.module.css";
 
 const STACK = [
@@ -15,8 +19,20 @@ const BACKGROUND = [
 ];
 
 export const AboutSection = () => {
+  const sectionRef = useRef<HTMLElement>(null);
+  const reduce = useReducedMotion();
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start end", "end start"],
+  });
+  const portraitY = useTransform(
+    scrollYProgress,
+    [0, 1],
+    [reduce ? 0 : 40, reduce ? 0 : -40],
+  );
+
   return (
-    <section id="about" className={styles.section}>
+    <section ref={sectionRef} id="about" className={styles.section}>
       <div className="container">
         <div data-grid12="" className={styles.grid}>
           <div className={styles.label}>
@@ -26,14 +42,17 @@ export const AboutSection = () => {
           </div>
 
           <div className={styles.portraitCol}>
-            <div className={styles.portrait}>
+            <motion.div
+              className={styles.portrait}
+              style={{ y: portraitY, willChange: "transform" }}
+            >
               <img
                 src="/assets/selfportrait.avif"
                 alt="Mykyta K. — portrait, Warsaw studio, 2026"
                 loading="lazy"
                 className={styles.portraitImg}
               />
-            </div>
+            </motion.div>
             <div className={styles.portraitCaption}>
               <span>Fig. A — Portrait, Warsaw Studio, 2026</span>
               <span>WAW / 52.2°N · 21.0°E</span>

@@ -1,14 +1,25 @@
 "use client";
 
+import { useRef } from "react";
+import { motion, useScroll, useTransform, useReducedMotion } from "framer-motion";
 import { useRevealMount, revealStyle } from "./useRevealMount";
 import styles from "./Hero.module.css";
 
 export const HeroIndex = ({ scrollTo }: { scrollTo: (id: string) => void }) => {
   const mounted = useRevealMount();
+  const sectionRef = useRef<HTMLElement>(null);
+  const reduce = useReducedMotion();
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start start", "end start"],
+  });
+  const y = useTransform(scrollYProgress, [0, 1], [0, reduce ? 0 : -60]);
+  const opacity = useTransform(scrollYProgress, [0, 0.9], [1, reduce ? 1 : 0.45]);
+
   return (
-    <section className={styles.indexSection}>
+    <section ref={sectionRef} className={styles.indexSection}>
       <div className={`container ${styles.indexInner}`}>
-        <div style={{ width: "100%" }}>
+        <motion.div style={{ width: "100%", y, opacity, willChange: "transform" }}>
           <div className="eyebrow" style={{ marginBottom: 24 }}>
             <span className="num">[ 2026 / VOL.04 ]</span> OPEN TO FULL-TIME
             ROLES
@@ -37,7 +48,7 @@ export const HeroIndex = ({ scrollTo }: { scrollTo: (id: string) => void }) => {
               </span>
             </span>
           </h1>
-        </div>
+        </motion.div>
       </div>
 
       <div className="container">

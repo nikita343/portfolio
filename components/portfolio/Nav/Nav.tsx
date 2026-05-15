@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { getLenis } from "@/lib/smooth-scroll";
 import styles from "./Nav.module.css";
 
 type Theme = "light" | "dark" | "red";
@@ -124,11 +125,21 @@ export const Nav = ({ theme, setTheme, scrollTo }: NavProps) => {
     const onKey = (e: KeyboardEvent) => {
       if (e.key === "Escape") setOpen(false);
     };
+    window.addEventListener("keydown", onKey);
+
+    const lenis = getLenis();
+    if (lenis) {
+      lenis.stop();
+      return () => {
+        window.removeEventListener("keydown", onKey);
+        lenis.start();
+      };
+    }
+
     const { overflow, paddingRight } = document.body.style;
     const scrollbarW = window.innerWidth - document.documentElement.clientWidth;
     document.body.style.overflow = "hidden";
     if (scrollbarW > 0) document.body.style.paddingRight = `${scrollbarW}px`;
-    window.addEventListener("keydown", onKey);
     return () => {
       window.removeEventListener("keydown", onKey);
       document.body.style.overflow = overflow;

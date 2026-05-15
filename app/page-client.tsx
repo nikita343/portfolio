@@ -7,6 +7,8 @@ import { Marquee } from "@/components/portfolio/Marquee/Marquee";
 import { Divider } from "@/components/portfolio/Divider/Divider";
 import { ScrollProgress } from "@/components/portfolio/ScrollProgress/ScrollProgress";
 import { MagneticCursor } from "@/components/portfolio/MagneticCursor/MagneticCursor";
+import { SmoothScroll } from "@/components/portfolio/SmoothScroll/SmoothScroll";
+import { smoothScrollTo } from "@/lib/smooth-scroll";
 import type { FeaturedProject } from "@/lib/projects";
 
 const WorkSection = lazy(() =>
@@ -71,14 +73,11 @@ export default function HomeClient() {
 
   const scrollTo = useCallback((id: string) => {
     if (id === "home") {
-      window.scrollTo({ top: 0, behavior: "smooth" });
+      smoothScrollTo(0, 0);
       return;
     }
     const el = document.getElementById(id);
-    if (el) {
-      const y = el.getBoundingClientRect().top + window.scrollY - 24;
-      window.scrollTo({ top: y, behavior: "smooth" });
-    }
+    if (el) smoothScrollTo(el);
   }, []);
 
   useEffect(() => {
@@ -111,6 +110,7 @@ export default function HomeClient() {
 
   return (
     <>
+      <SmoothScroll />
       <ScrollProgress />
       <MagneticCursor />
       <Nav theme={theme} setTheme={setTheme} scrollTo={scrollTo} />
