@@ -1,7 +1,12 @@
 "use client";
 
 import { useRef } from "react";
-import { motion, useScroll, useTransform, useReducedMotion } from "framer-motion";
+import {
+  motion,
+  useScroll,
+  useTransform,
+  useReducedMotion,
+} from "framer-motion";
 import { useRevealMount, revealStyle } from "./useRevealMount";
 import styles from "./Hero.module.css";
 
@@ -14,12 +19,18 @@ export const HeroIndex = ({ scrollTo }: { scrollTo: (id: string) => void }) => {
     offset: ["start start", "end start"],
   });
   const y = useTransform(scrollYProgress, [0, 1], [0, reduce ? 0 : -60]);
-  const opacity = useTransform(scrollYProgress, [0, 0.9], [1, reduce ? 1 : 0.45]);
+  const opacity = useTransform(
+    scrollYProgress,
+    [0, 0.9],
+    [1, reduce ? 1 : 0.45],
+  );
 
   return (
     <section ref={sectionRef} className={styles.indexSection}>
       <div className={`container ${styles.indexInner}`}>
-        <motion.div style={{ width: "100%", y, opacity, willChange: "transform" }}>
+        <motion.div
+          style={{ width: "100%", y, opacity, willChange: "transform" }}
+        >
           <div className="eyebrow" style={{ marginBottom: 24 }}>
             <span className="num">[ 2026 / VOL.04 ]</span> OPEN TO FULL-TIME
             ROLES
@@ -55,8 +66,9 @@ export const HeroIndex = ({ scrollTo }: { scrollTo: (id: string) => void }) => {
         <div data-grid12="" className={styles.indexFooterGrid}>
           <div style={{ gridColumn: "span 4" }}>
             <p className={`body ${styles.indexFooterBlurb}`}>
-              React, Next.js, TypeScript. Five years building product UI —
-              Notion-like editors, creator analytics, AI-powered tools.
+              Having started as a graphic designer and transitioning into a
+              frontend engineer gives me a unique perspective and understanding
+              in merging both visual aesthetics and technical knowledge.
             </p>
           </div>
           <div style={{ gridColumn: "span 4" }}>
