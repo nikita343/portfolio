@@ -36,12 +36,7 @@ function WorkIntro() {
               <span className="num">[ A ]</span> WHAT YOU&apos;RE LOOKING AT
             </div>
           </div>
-          <div className={styles.introCol2}>
-            <p className={`body-lg ${styles.introBody2}`}>
-              I don&apos;t believe in curating away the volume. The volume{" "}
-              <span className="italic">is</span> the case study.
-            </p>
-          </div>
+          <div className={styles.introCol2}></div>
         </div>
       </div>
     </section>
