@@ -14,7 +14,7 @@ const PANELS = [
     n: "02",
     label: "CRAFT",
     t: "Detail is the product.",
-    d: "Strict TypeScript and Zod at the boundary — with the same obsession spent on the smallest hover, empty state, and transition. The last ten percent is the part people remember.",
+    d: "Strict TypeScript, Zod at the boundary, and an empty state treated as seriously as the happy path. The gap between demo-grade and product-grade is all in the boring parts.",
   },
   {
     n: "03",

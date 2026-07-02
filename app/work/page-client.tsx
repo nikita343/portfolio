@@ -37,13 +37,6 @@ function WorkIntro() {
             </div>
           </div>
           <div className={styles.introCol2}>
-            <p className={`body-lg ${styles.introBody}`}>
-              Five hero cases up top — the work I&apos;d lead with on a first
-              call. Below them, the <span className="italic">full archive</span>
-              : every project shipped between early 2022 and today, filterable
-              by year, role, stack, and industry. Some sit under NDA — those
-              entries are redacted but still counted.
-            </p>
             <p className={`body-lg ${styles.introBody2}`}>
               I don&apos;t believe in curating away the volume. The volume{" "}
               <span className="italic">is</span> the case study.

@@ -61,18 +61,19 @@ export const AboutSection = () => {
 
           <div className={styles.copyCol}>
             <h2 className={`h2 ${styles.heading}`}>
-              Frontend developer with a designer&apos;s eye, focused on{" "}
-              <span className="italic">React, Next.js, and TypeScript</span> —
-              taking real product features from Figma to production and owning
-              every detail in between.
+              Frontend developer in{" "}
+              <span className="italic">React, Next.js, and TypeScript</span> who
+              spent years in graphic design before the code. I take real
+              features from Figma to production and stay on the details the whole
+              way down.
             </h2>
             <p className={`body-lg ${styles.lede}`}>
-              Recent work includes a Notion-like app with AI features and a
-              creator analytics dashboard — complex UIs, real state management,
-              and APIs wired end to end. I care about clean data flows,
-              performance, and code other engineers actually want to touch. The
-              smallest button or hover state is usually where I have the most
-              fun.
+              Recently I built a Notion-like app with AI features and a creator
+              analytics dashboard that leaned hard on real-time state. Both were
+              mostly about wiring messy APIs into interfaces that still feel calm
+              to use. What I care about most is clean data flow and code the next
+              engineer isn&apos;t afraid to open. The smallest button or hover
+              state is usually where I have the most fun.
             </p>
             <p className={`body-lg ${styles.lede2}`}>
               Looking for a full-time role in a product team — somewhere features

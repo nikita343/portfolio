@@ -51,7 +51,7 @@ const SERVICES = [
   {
     n: "05",
     title: "Marketing & brand sites",
-    desc: "Marketing sites and product landings in Next.js or Webflow, built to convert and stand out in a sea of templated, AI-generated sameness. The stack call depends on who owns the site after launch — performance-first build, considered motion, and a CMS the marketing team actually runs themselves. Accessible by default, fast on Lighthouse, structured so the next campaign doesn't need an engineer to ship.",
+    desc: "Marketing sites and product landings in Next.js or Webflow, built to convert without looking like every other AI-generated template. The stack call depends on who owns the site after launch. Fast on Lighthouse, accessible by default, considered motion, and a CMS the marketing team can run without calling an engineer for every campaign.",
     deliverables: [
       "Build (Next.js / Webflow)",
       "CMS architecture",
@@ -87,10 +87,9 @@ export const ServicesSection = () => {
           </div>
           <div className={styles.headerRight}>
             <p className={`body-lg ${styles.headerDescription}`}>
-              I embed into product teams as a frontend engineer — owning features from
-              the first product conversation through to production. Independent enough
-              to drive the decisions, detail-obsessed enough to sweat every state, and
-              accountable for the outcomes either way.
+              I join product teams as a frontend engineer and own features from the
+              first product conversation to production. I&apos;ll make the calls that
+              need making, and I&apos;m on the hook for how they turn out.
             </p>
           </div>
         </div>

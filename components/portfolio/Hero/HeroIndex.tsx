@@ -66,10 +66,10 @@ export const HeroIndex = ({ scrollTo }: { scrollTo: (id: string) => void }) => {
         <div data-grid12="" className={styles.indexFooterGrid}>
           <div style={{ gridColumn: "span 4" }}>
             <p className={`body ${styles.indexFooterBlurb}`}>
-              I started in graphic design before moving into frontend
-              engineering — so the visual detail and the code get held to the
-              same standard. The smallest hover state is treated as seriously as
-              the architecture behind it.
+              I came into frontend engineering from graphic design, and I still
+              treat the look of a thing as part of the build, not a layer added
+              at the end. A hover state gets the same attention as the data flow
+              under it.
             </p>
           </div>
           <div style={{ gridColumn: "span 4" }}>
