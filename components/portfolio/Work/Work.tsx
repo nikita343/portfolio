@@ -1,61 +1,66 @@
 "use client";
 
 import { useState, useRef, useCallback, useEffect } from "react";
-import { PROJECTS, ALL_PROJECTS, type FeaturedProject } from "@/lib/projects";
+import { ALL_PROJECTS, type ArchiveProject } from "@/lib/projects";
 import styles from "./Work.module.css";
 
+// A slice of the full archive for the homepage — named, live, clickable.
+const HOME_PROJECTS = ALL_PROJECTS.filter((p) => p.status !== "nda").slice(0, 10);
+
 interface WorkRowProps {
-  p: FeaturedProject;
-  onOpen: (p: FeaturedProject) => void;
+  p: ArchiveProject;
+  n: string;
   onHover: (id: string | null) => void;
   isActive: boolean;
 }
 
-const WorkRow = ({ p, onOpen, onHover, isActive }: WorkRowProps) => (
-  <div
-    onMouseEnter={() => onHover(p.id)}
-    onMouseLeave={() => onHover(null)}
-    onClick={() => onOpen(p)}
-    data-cursor="View case ↗"
-    className={styles.row}
-  >
-    <div className={`eyebrow tnum ${styles.rowNum}`}>[{p.n}]</div>
+const WorkRow = ({ p, n, onHover, isActive }: WorkRowProps) => {
+  const handleClick = () => {
+    if (p.live) window.open(`https://${p.live}`, "_blank", "noopener,noreferrer");
+  };
 
-    <div>
-      <div
-        className={styles.rowTitle}
-        style={{ transform: isActive ? "translateX(20px)" : "translateX(0)" }}
-      >
-        {p.title}
+  return (
+    <div
+      onMouseEnter={() => onHover(p.id)}
+      onMouseLeave={() => onHover(null)}
+      onClick={handleClick}
+      data-cursor={p.live ? "Visit site ↗" : undefined}
+      className={styles.row}
+    >
+      <div className={`eyebrow tnum ${styles.rowNum}`}>[{n}]</div>
+
+      <div>
+        <div
+          className={styles.rowTitle}
+          style={{ transform: isActive ? "translateX(20px)" : "translateX(0)" }}
+        >
+          {p.title}
+        </div>
+      </div>
+
+      <div className={styles.rowTags}>
+        {p.stack.slice(0, 3).map((t, i) => (
+          <span key={i} className="work-row-tag">
+            {t}
+          </span>
+        ))}
+      </div>
+
+      <div className={styles.rowYear}>{p.year}</div>
+
+      <div className={styles.rowArrCell}>
+        <span
+          className={styles.rowArr}
+          style={{ transform: isActive ? "translate(4px, -4px)" : "translate(0,0)" }}
+        >
+          ↗
+        </span>
       </div>
     </div>
+  );
+};
 
-    <div className={styles.rowTags}>
-      {p.tags.map((t, i) => (
-        <span key={i} className="work-row-tag">
-          {t}
-        </span>
-      ))}
-    </div>
-
-    <div className={styles.rowYear}>{p.year}</div>
-
-    <div className={styles.rowArrCell}>
-      <span
-        className={styles.rowArr}
-        style={{ transform: isActive ? "translate(4px, -4px)" : "translate(0,0)" }}
-      >
-        ↗
-      </span>
-    </div>
-  </div>
-);
-
-interface WorkSectionProps {
-  onOpen: (p: FeaturedProject) => void;
-}
-
-export const WorkSection = ({ onOpen }: WorkSectionProps) => {
+export const WorkSection = () => {
   const [active, setActive] = useState<string | null>(null);
   const previewRef = useRef<HTMLDivElement>(null);
 
@@ -71,7 +76,7 @@ export const WorkSection = ({ onOpen }: WorkSectionProps) => {
     }
   }, [active, handleMove]);
 
-  const activeProj = PROJECTS.find((p) => p.id === active);
+  const activeProj = HOME_PROJECTS.find((p) => p.id === active);
 
   return (
     <section id="work" className={styles.section}>
@@ -79,7 +84,7 @@ export const WorkSection = ({ onOpen }: WorkSectionProps) => {
         <div className={styles.header}>
           <div>
             <div className={`eyebrow ${styles.headerTitleNum}`}>
-              <span className="num">[02]</span> SELECTED WORK / 2023 — 2026
+              <span className="num">[02]</span> SELECTED WORK / 2022 — 2026
             </div>
             <h2 className="h2">
               Built for teams who care
@@ -90,7 +95,8 @@ export const WorkSection = ({ onOpen }: WorkSectionProps) => {
           <div className={styles.headerRight}>
             <div className="eyebrow tnum">
               <span className="num">[ COUNT ]</span>{" "}
-              {String(PROJECTS.length).padStart(2, "0")} FEATURED · MORE IN ARCHIVE
+              {String(HOME_PROJECTS.length).padStart(2, "0")} SHOWN ·{" "}
+              {ALL_PROJECTS.length} IN ARCHIVE
             </div>
             <a href="/work" className={`link-line eyebrow ${styles.headerLink}`}>
               VIEW ALL WORK <span className="arr">↗</span>
@@ -99,11 +105,11 @@ export const WorkSection = ({ onOpen }: WorkSectionProps) => {
         </div>
 
         <div className={styles.list}>
-          {PROJECTS.map((p) => (
+          {HOME_PROJECTS.map((p, i) => (
             <WorkRow
               key={p.id}
               p={p}
-              onOpen={onOpen}
+              n={String(i + 1).padStart(2, "0")}
               onHover={setActive}
               isActive={active === p.id}
             />
@@ -112,9 +118,9 @@ export const WorkSection = ({ onOpen }: WorkSectionProps) => {
 
         <div className={styles.footer}>
           <div className={`body ${styles.footerBody}`}>
-            Selected projects only. Full archive of{" "}
-            <span style={{ color: "var(--fg)" }}>{ALL_PROJECTS.length}+ projects</span> —
-            filterable by year, role, stack, industry.
+            A slice of the work. The full archive of{" "}
+            <span style={{ color: "var(--fg)" }}>{ALL_PROJECTS.length}+ projects</span> is
+            filterable by year, role, stack, and industry.
           </div>
           <a href="/work" className="link-line" style={{ fontSize: 14 }}>
             View full archive <span className="arr">↗</span>
@@ -130,11 +136,11 @@ export const WorkSection = ({ onOpen }: WorkSectionProps) => {
           }}
         >
           {activeProj &&
-            (activeProj.hero ? (
+            (activeProj.ogImage ? (
               <div className={styles.previewInner}>
                 <img
-                  src={activeProj.hero}
-                  alt={activeProj.label}
+                  src={activeProj.ogImage}
+                  alt={activeProj.title}
                   onError={(e) => {
                     (e.currentTarget as HTMLImageElement).style.display = "none";
                   }}
@@ -143,7 +149,7 @@ export const WorkSection = ({ onOpen }: WorkSectionProps) => {
               </div>
             ) : (
               <div className={`placeholder ${styles.previewInner}`}>
-                <span className="ph-label">{activeProj.label}</span>
+                <span className="ph-label">{activeProj.title}</span>
               </div>
             ))}
         </div>

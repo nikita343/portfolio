@@ -9,7 +9,6 @@ import { ScrollProgress } from "@/components/portfolio/ScrollProgress/ScrollProg
 import { MagneticCursor } from "@/components/portfolio/MagneticCursor/MagneticCursor";
 import { SmoothScroll } from "@/components/portfolio/SmoothScroll/SmoothScroll";
 import { smoothScrollTo } from "@/lib/smooth-scroll";
-import type { FeaturedProject } from "@/lib/projects";
 
 const WorkSection = lazy(() =>
   import("@/components/portfolio/Work/Work").then((m) => ({ default: m.WorkSection })),
@@ -38,10 +37,6 @@ const Booking = lazy(() =>
 const Footer = lazy(() =>
   import("@/components/portfolio/Footer/Footer").then((m) => ({ default: m.Footer })),
 );
-const CaseStudy = lazy(() =>
-  import("@/components/portfolio/CaseStudy/CaseStudy").then((m) => ({ default: m.CaseStudy })),
-);
-
 type Theme = "light" | "dark" | "red";
 
 const SectionFallback = ({ minHeight = 400 }: { minHeight?: number }) => (
@@ -50,7 +45,6 @@ const SectionFallback = ({ minHeight = 400 }: { minHeight?: number }) => (
 
 export default function HomeClient() {
   const [theme, setThemeState] = useState<Theme>("light");
-  const [openCase, setOpenCase] = useState<FeaturedProject | null>(null);
 
   useEffect(() => {
     try {
@@ -106,8 +100,6 @@ export default function HomeClient() {
     };
   }, []);
 
-  const handleClose = useCallback(() => setOpenCase(null), []);
-
   return (
     <>
       <SmoothScroll />
@@ -123,7 +115,7 @@ export default function HomeClient() {
         <Marquee />
 
         <Suspense fallback={<SectionFallback minHeight={600} />}>
-          <WorkSection onOpen={setOpenCase} />
+          <WorkSection />
         </Suspense>
 
         <Divider />
@@ -156,12 +148,6 @@ export default function HomeClient() {
       <Suspense fallback={<SectionFallback minHeight={300} />}>
         <Footer />
       </Suspense>
-
-      {openCase && (
-        <Suspense fallback={null}>
-          <CaseStudy project={openCase} onClose={handleClose} />
-        </Suspense>
-      )}
     </>
   );
 }
