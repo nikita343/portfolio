@@ -12,9 +12,9 @@ const PANELS = [
   },
   {
     n: "02",
-    label: "CODE QUALITY",
-    t: "Typed top to bottom.",
-    d: "Strict TypeScript. Zod at the boundary. Components that document themselves and survive a refactor.",
+    label: "CRAFT",
+    t: "Detail is the product.",
+    d: "Strict TypeScript and Zod at the boundary — with the same obsession spent on the smallest hover, empty state, and transition. The last ten percent is the part people remember.",
   },
   {
     n: "03",

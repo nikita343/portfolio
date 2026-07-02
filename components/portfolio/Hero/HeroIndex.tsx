@@ -33,7 +33,7 @@ export const HeroIndex = ({ scrollTo }: { scrollTo: (id: string) => void }) => {
         >
           <div className="eyebrow" style={{ marginBottom: 24 }}>
             <span className="num">[ 2026 / VOL.04 ]</span> OPEN TO FULL-TIME
-            ROLES
+            ROLES & SELECT PROJECTS
           </div>
           <h1 className={styles.indexHeading}>
             <span className="reveal-line">
@@ -66,9 +66,10 @@ export const HeroIndex = ({ scrollTo }: { scrollTo: (id: string) => void }) => {
         <div data-grid12="" className={styles.indexFooterGrid}>
           <div style={{ gridColumn: "span 4" }}>
             <p className={`body ${styles.indexFooterBlurb}`}>
-              Having started as a graphic designer and transitioning into a
-              frontend engineer gives me a unique perspective and understanding
-              in merging both visual aesthetics and technical knowledge.
+              I started in graphic design before moving into frontend
+              engineering — so the visual detail and the code get held to the
+              same standard. The smallest hover state is treated as seriously as
+              the architecture behind it.
             </p>
           </div>
           <div style={{ gridColumn: "span 4" }}>

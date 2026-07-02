@@ -41,8 +41,8 @@ function WorkIntro() {
               Five hero cases up top — the work I&apos;d lead with on a first
               call. Below them, the <span className="italic">full archive</span>
               : every project shipped between early 2022 and today, filterable
-              by year, role, stack, industry. Some are under NDA — those entries
-              are redacted but counted.
+              by year, role, stack, and industry. Some sit under NDA — those
+              entries are redacted but still counted.
             </p>
             <p className={`body-lg ${styles.introBody2}`}>
               I don&apos;t believe in curating away the volume. The volume{" "}

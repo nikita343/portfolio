@@ -22,7 +22,7 @@ export const metadata: Metadata = {
     template: "%s · Mykyta K.",
   },
   description:
-    "React / Next.js developer building complex dashboards, editors and SaaS interfaces. Webflow Partner. 60+ projects shipped since 2022. Based in Warsaw, working worldwide.",
+    "React / Next.js developer with a design background, building complex dashboards, editors and SaaS interfaces people actually remember. Webflow Partner. 60+ projects shipped since 2022. Based in Warsaw, working worldwide.",
   applicationName: "Mykyta K. Portfolio",
   authors: [{ name: "Mykyta K.", url: SITE_URL }],
   creator: "Mykyta K.",
@@ -55,7 +55,7 @@ export const metadata: Metadata = {
     siteName: "Mykyta K. — Frontend Developer",
     title: "Mykyta K. — Frontend Developer · React / Next.js / Webflow",
     description:
-      "React / Next.js developer building complex dashboards, editors and SaaS interfaces. Webflow Partner. 60+ projects shipped since 2022.",
+      "React / Next.js developer with a design background, building complex dashboards, editors and SaaS interfaces people actually remember. Webflow Partner. 60+ projects shipped since 2022.",
     images: [
       {
         url: OG_IMAGE,
