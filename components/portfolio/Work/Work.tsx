@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useRef, useCallback, useEffect } from "react";
+import { useState } from "react";
 import { ALL_PROJECTS, type ArchiveProject } from "@/lib/projects";
 import styles from "./Work.module.css";
 
@@ -62,21 +62,6 @@ const WorkRow = ({ p, n, onHover, isActive }: WorkRowProps) => {
 
 export const WorkSection = () => {
   const [active, setActive] = useState<string | null>(null);
-  const previewRef = useRef<HTMLDivElement>(null);
-
-  const handleMove = useCallback((e: MouseEvent) => {
-    if (!previewRef.current) return;
-    previewRef.current.style.transform = `translate(${e.clientX + 24}px, ${e.clientY - 120}px)`;
-  }, []);
-
-  useEffect(() => {
-    if (active) {
-      window.addEventListener("mousemove", handleMove);
-      return () => window.removeEventListener("mousemove", handleMove);
-    }
-  }, [active, handleMove]);
-
-  const activeProj = HOME_PROJECTS.find((p) => p.id === active);
 
   return (
     <section id="work" className={styles.section}>
@@ -125,33 +110,6 @@ export const WorkSection = () => {
           <a href="/work" className="link-line" style={{ fontSize: 14 }}>
             View full archive <span className="arr">↗</span>
           </a>
-        </div>
-
-        <div
-          ref={previewRef}
-          className={styles.preview}
-          style={{
-            opacity: active ? 1 : 0,
-            transform: "translate(-9999px, -9999px)",
-          }}
-        >
-          {activeProj &&
-            (activeProj.ogImage ? (
-              <div className={styles.previewInner}>
-                <img
-                  src={activeProj.ogImage}
-                  alt={activeProj.title}
-                  onError={(e) => {
-                    (e.currentTarget as HTMLImageElement).style.display = "none";
-                  }}
-                  className={styles.previewImg}
-                />
-              </div>
-            ) : (
-              <div className={`placeholder ${styles.previewInner}`}>
-                <span className="ph-label">{activeProj.title}</span>
-              </div>
-            ))}
         </div>
       </div>
     </section>
